@@ -1,0 +1,1 @@
+$.fn.dataTable.Buttons.defaults.dom.button.className = 'btn btn-sm mt-1';

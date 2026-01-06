@@ -1,0 +1,107 @@
+:root {
+    --system-nav-bg: #48c5ff;
+    --system-footer-bg: #001f3f;
+    --system-wrapper-bg: #c8e0e4;
+    --bs-dropdown-link-active-bg: var(--system-nav-bg);
+}
+.system-nav {
+    background: linear-gradient(to right, var(--system-nav-bg), var(--system-footer-bg));
+}
+
+
+.system-nav .navbar-brand {
+    color: #efefef !important;
+}
+.system-nav .nav-link {
+    color: #efefef !important;
+}
+
+.system-footer {
+    background: linear-gradient(to left, var(--system-nav-bg), var(--system-footer-bg));
+}
+.system-wrapper {
+    background-color: var(--system-wrapper-bg);
+}
+
+.dropdown-item:hover,
+.dropdown-item.active,
+.dropdown-item.show {
+    background-color: #2794beb9 !important;
+    color: #fff !important; /* make text readable */
+}
+
+.nav-active,
+.nav-link.dropdown-toggle.show,
+.nav-link:hover {
+    border-radius: .5rem;
+    background-color: #2fb0e2b7;
+}
+
+.nav-item.dropdown.show > .nav-item {
+    background-color: var(--system-nav-bg);
+    color: #efefef; /* make text readable */
+    border-radius: 0.25rem; /* optional */
+}
+
+table.dataTable>tbody>tr.selected>* {
+    box-shadow: inset 0 0 0 9999px #239fd8 !important;
+    color: #efefef !important;
+}
+tr.dt-hasChild.selected + tr.child, 
+tr.dt-hasChild.selected + tr.child:hover {
+    background-color: var(--system-nav-bg) !important;
+    color: #efefef !important;
+}
+table.dataTable>tbody>tr.dt-hasChild.selected + tr.child ul.dtr-details {
+    border: 1px solid var(--bs-gray-600) !important;
+}
+tr.dt-hasChild + tr.child ul.dtr-details {
+    border: 1px solid var(--bs-gray-600) !important;
+}
+table.dataTable>tbody>tr.child ul.dtr-details>li + li {
+    border-top: 1px solid var(--bs-gray-600) !important;
+}
+
+.audit-program-revised {
+    background-color: #ffff00;
+    color: #02080e;
+}
+
+.audit-program-done {
+    background-color: #92d050;
+    color: #02080e;
+}
+
+.audit-program-year-half1 {
+    background-color: #fce4d6 !important;
+    color: #02080e !important;
+}
+[data-bs-theme="dark"] .highlight-note span {
+    color: #000 !important;
+    background-color:#ffe082; 
+    border-radius:3px;
+}
+
+[data-bs-theme="dark"] select.non-conformity-blue{
+    color: #000000;
+    background-color: #a5d8ff !important;
+}
+[data-bs-theme="dark"] .non-conformity-blue{
+    color: #000000;
+}
+[data-bs-theme="dark"] .timeline-step,
+[data-bs-theme="dark"] .highlight-note{
+    color: #02080e;
+}
+[data-bs-theme="dark"] .highlight-note span {
+    color: #000 !important;
+}
+[data-bs-theme="dark"] table .timeline-step td,
+[data-bs-theme="dark"] table .timeline-step strong {
+    color: #02080e !important;
+}
+[data-bs-theme="dark"] .non-conformity-checkbox input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+    accent-color: #007bff; /* This changes the checkmark/tick color */
+}

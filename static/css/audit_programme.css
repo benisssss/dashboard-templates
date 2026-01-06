@@ -1,0 +1,220 @@
+.arrow-split .left,
+.arrow-split .right {
+    border: 2px solid;
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.arrow {
+    opacity: 0.50;
+}
+
+.caret-right,
+.caret-left {
+    width: 18px;
+    /* size */
+    height: 18px;
+    display: inline-block;
+}
+
+.caret-right path,
+.caret-left path {
+    fill: currentColor;
+    stroke: currentColor;
+    /* matches hr’s default transparency */
+    stroke-width: 1;
+    /* makes corners smoother */
+    stroke-linejoin: round;
+    /* <— rounded corners! */
+}
+
+.arrow-component {
+    z-index: 99;
+}
+
+.aud3-prog-timeline-cell {
+    padding: 0 !important;
+    position: relative;
+}
+
+.aud3-prog-timeline-cell:hover {
+    outline: 2px solid var(--bs-primary);
+    outline-offset: -5px;
+}
+
+.aud3-prog-timeline-cell span i {
+    opacity: 0.75 !important;
+}
+
+.arrow-split {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* full width */
+}
+
+.arrow-circle {
+    position: absolute;
+}
+
+.sticky-table thead tr th {
+    position: sticky;
+    z-index: 2;
+    /* ensure it sits above tbody cells */
+    background-color: var(--bs-table-bg);
+    /* match theme */
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+/* Sticky first column */
+.sticky-table th:first-child,
+.sticky-table td:first-child {
+    position: sticky;
+    left: 0;
+    /* must be higher than header cells */
+    z-index: 3;
+    box-shadow: 1px 0 0 var(--bs-border-color);
+}
+
+.sticky-table th:first-child,
+.sticky-table td:first-child:not(.programme-process-header) {
+    background-color: var(--bs-body-bg);
+}
+
+.process-th {
+    z-index: 11 !important;
+    /* highest layer of all */
+}
+
+.programme-cell-done {
+    background-color: #92d050;
+}
+
+.programme-cell-done_to_approve {
+    background-color: #92d050;
+    border: 2px solid var(--bs-primary);
+}
+
+.programme-cell-done_to_remove {
+    background-color: #92d050;
+    border: 2px solid var(--bs-danger);
+}
+
+.programme-cell-revised {
+    background-color: #ffff00;
+    color: var(--bs-primary);
+}
+
+.programme-cell-crossed_to_delete,
+.programme-cell-crossed_to_approve,
+.programme-cell-crossed {
+    position: relative;
+}
+
+.programme-cell-crossed_to_delete::before,
+.programme-cell-crossed_to_delete::after,
+.programme-cell-crossed_to_approve::before,
+.programme-cell-crossed_to_approve::after,
+.programme-cell-crossed::before,
+.programme-cell-crossed::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 111%;
+    border-top: 2px solid currentColor;
+    opacity: 0.50;
+    transform-origin: center;
+    pointer-events: none;
+}
+
+/* cross blue and cross red are used by the arrow render function, don't know if i should delete prob not */
+
+/* color variants — affect only the pseudo-elements */
+.programme-cell-crossed_to_approve::before,
+.programme-cell-crossed_to_approve::after,
+.cross-blue::before,
+.cross-blue::after {
+    border-top-color: var(--bs-primary);
+}
+
+.programme-cell-crossed_to_delete::before,
+.programme-cell-crossed_to_delete::after,
+.cross-red::before,
+.cross-red::after {
+    border-top-color: var(--bs-danger);
+}
+
+
+.programme-cell-crossed_to_delete::before,
+.programme-cell-crossed_to_approve::before,
+.programme-cell-crossed::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.programme-cell-crossed_to_delete::after,
+.programme-cell-crossed_to_approve::after,
+.programme-cell-crossed::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.arrow-component+.arrow-component {
+    margin-top: -0.5rem !important;
+}
+
+.programme-cell-to_approve {
+    color: var(--bs-primary);
+}
+
+.programme-cell-to_delete {
+    color: var(--bs-danger);
+}
+
+.arrow-component,
+[data-icon_id] {
+    transition: color 0.3s ease, fill 0.3s ease;
+    /* smooth color change */
+}
+
+.programme-arrow-cell-hover {
+    color: var(--bs-info) !important;
+    fill: var(--bs-info) !important;
+    filter: drop-shadow(0 0 3px var(--bs-info));
+    transition: color 0.2s ease-in-out, fill 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+.programme-cell-column-selected {
+    position: relative;
+}
+
+.programme-cell-column-selected::before,
+.programme-cell-column-selected::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: color-mix(in srgb, currentColor 20%, transparent);
+    pointer-events: none;
+}
+
+.programme-cell-column-selected::before {
+    left: 0;
+}
+
+.programme-cell-column-selected::after {
+    right: 0;
+}
+
+.programme-process-header {
+    pointer-events: none !important;
+    background-color: #92d050 !important;
+    font-weight: bold;
+}
