@@ -32,7 +32,7 @@
                 <!-- <li class="nav-item" data-page="desa">
                     <a href="<?php echo $system; ?>/pages/desa" class="nav-link px-2"><i class="fa-solid fa-pen-to-square"></i>&nbsp;Desa</a>
                 </li> -->
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link px-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         3YR Audit Programme
@@ -56,8 +56,8 @@
                         <li><a class="dropdown-item" href="<?php echo $system; ?>/pages/action" data-page="action">Mfg. Process</a></li>
                         <li><a class="dropdown-item" href="<?php echo $system; ?>/pages/action" data-page="action">Product</a></li>
                     </ul>
-                </li>
-                <li class="nav-item">
+                </li> -->
+                <!-- <li class="nav-item">
                     <a
                         class="nav-link px-2"
                         href="<?php echo $system; ?>/pages/detailed_audit"
@@ -75,16 +75,16 @@
                     >
                         IANR
                     </a>
-                    <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="<?php echo $system; ?>/pages/ianr" data-page="ianr">QMS</a></li>
                         <li><a class="dropdown-item" href="<?php echo $system; ?>/pages/action" data-page="action">EOHSMS</a></li>
                         <li><a class="dropdown-item" href="<?php echo $system; ?>/pages/action" data-page="action">Mfg. Process</a></li>
                         <li><a class="dropdown-item" href="<?php echo $system; ?>/pages/action" data-page="action">Product</a></li>
                         <li><a class="dropdown-item" href="<?php echo $system; ?>/pages/action" data-page="action">Management</a></li>
-                    </ul> -->
-                </li>
+                    </ul>
+                </li> -->
                 <li class="nav-item" data-page="account_management">
-                    <a href="<?php echo $system; ?>/pages/account_management" class="nav-link px-2"><i
+                    <a href="<?php echo $system; ?>/pages/account_management" class="nav-link px-2 invisible"><i
                             class="fa-solid fa-pen-to-square"></i>&nbsp;Accounts</a>
                 </li>
                 <li class="nav-item mt-1">

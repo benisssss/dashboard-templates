@@ -97,7 +97,7 @@
 
 <body>
     <div id="wrapper">
-        <nav id="sidebar" class="bg-light border-end">
+        <nav id="sidebar" class="bg-light border-end card-animate">
             <div class="sidebar-header p-3 d-flex justify-content-between align-items-center">
                 <div>
                     <strong><span class="brand-short"><img src='<?php echo $system; ?>/static/img/apps.png' alt="App Icon" width="30" height="30"></span><span class="brand-full">MyApp</span></strong>
@@ -105,44 +105,44 @@
                 <button class="btn btn-sm btn-outline-secondary d-md-none" id="closeSidebar">✕</button>
             </div>
             <ul class="nav flex-column gap-1 mt-3">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
+                <li class="nav-item card-animate">
+                    <a class="nav-link" href="https://www.facebook.com">
                         <img src='<?php echo $system; ?>/static/img/facebook.png' alt="fb" width="30" height="30">
                         <span class="label">Facebook</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
+                <li class="nav-item card-animate">
+                    <a class="nav-link" href="https://www.messenger.com/">
                         <img src='<?php echo $system; ?>/static/img/messenger.png' alt="msngr" width="30" height="30">
                         <span class="label">Messenger</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
+                <li class="nav-item card-animate">
+                    <a class="nav-link" href="https://www.instagram.com">
                         <img src='<?php echo $system; ?>/static/img/instagram.png' alt="insta" width="32" height="32">
                         <span class="label">Instagram</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
+                <li class="nav-item card-animate">
+                    <a class="nav-link" href="https://www.netflix.com">
                         <img src='<?php echo $system; ?>/static/img/netflix.png' alt="netflix" width="40" height="40">
                         <span class="label">Netflix</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
+                <li class="nav-item card-animate">
+                    <a class="nav-link" href="https://www.youtube.com/">
                         <img src='<?php echo $system; ?>/static/img/youtube.png' alt="yt" width="32" height="32">
                         <span class="label">YouTube</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
+                <li class="nav-item card-animate">
+                    <a class="nav-link" href="https://www.tiktok.com">
                         <img src='<?php echo $system; ?>/static/img/tiktok.png' alt="tiktok" width="30" height="30">
                         <span class="label">Tiktok</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
+                <li class="nav-item card-animate">
+                    <a class="nav-link" href="https://www.spotify.com">
                         <img src='<?php echo $system; ?>/static/img/spotify.png' alt="spotify" width="30" height="30">
                         <span class="label">Spotify</span>
                     </a>
