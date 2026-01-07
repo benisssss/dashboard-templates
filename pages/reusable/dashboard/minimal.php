@@ -9,7 +9,7 @@
 
         <!-- Brand -->
         <a class="navbar-brand p-0 d-flex align-items-center" href="<?php echo $system . '/pages/dashboard/' ?>">
-            <img src="<?php echo $system . "/static/img/system_logo.png" ?>" alt="System Logo" class="brand-image"
+            <img src="<?php echo $system . "/static/img/logo.png" ?>" alt="System Logo" class="brand-image"
                 style="height:6.3vh;">
             <span class="ms-1 d-none d-md-inline-block fw-bold">Dashboard</span>
             <span class="ms-1 d-md-none fw-bold">QMS</span>
