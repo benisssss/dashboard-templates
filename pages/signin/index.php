@@ -9,7 +9,7 @@ include '../../api/common/sessions.php';
 
 <head>
     <title>QMS Dashboard | Login</title>
-    <link rel="icon" href="<?php echo $system; ?>/static/img/logo.png" type="image/x-icon">
+    <link rel="icon" href="<?php echo $system; ?>/static/img/system_logo.png" type="image/x-icon">
     <?php
         include '../../api/common/imports.php';
         load_css_import();

@@ -2,11 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard Template</title>
-    <link href="/plugins/bootstrap-5.3.8/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/css/system.css" rel="stylesheet">
     <style>
         /* Sidebar */
         #wrapper {
@@ -106,9 +102,9 @@
             </div>
             <ul class="nav flex-column gap-1 mt-3">
                 <li class="nav-item card-animate">
-                    <a class="nav-link" href="https://www.facebook.com">
-                        <img src='<?php echo $system; ?>/static/img/facebook.png' alt="fb" width="30" height="30">
-                        <span class="label">Facebook</span>
+                    <a class="nav-link" href="#" data-page="charts">
+                        <img src='<?php echo $system; ?>/static/img/chart.png' alt="chart" width="30" height="30">
+                        <span class="label">Charts</span>
                     </a>
                 </li>
                 <li class="nav-item card-animate">
@@ -147,8 +143,8 @@
                         <span class="label">Spotify</span>
                     </a>
                 </li>
-                
-                
+
+
             </ul>
 
         </nav>
@@ -165,40 +161,43 @@
             </header>
 
             <main class="p-4">
-                <div class="row g-3">
-                    <div class="col-6 col-md-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <div>
-                                        <h6 class="card-title">Users</h6>
-                                        <div class="display-6" data-target="1245">0</div>
+                <div id="dashboard-content">
+
+                    <div class="row g-3">
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <h6 class="card-title">Users</h6>
+                                            <div class="display-6" data-target="1245">0</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h6 class="card-title">Sales</h6>
-                                <div class="display-6" data-target="872">0</div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">Sales</h6>
+                                    <div class="display-6" data-target="872">0</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h6 class="card-title">Revenue</h6>
-                                <div class="display-6" data-target="54320">0</div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">Revenue</h6>
+                                    <div class="display-6" data-target="54320">0</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h6 class="card-title">Active</h6>
-                                <div class="display-6" data-target="98">0</div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">Active</h6>
+                                    <div class="display-6" data-target="98">0</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -216,7 +215,8 @@
         </div>
     </div>
 
-    <script src="/plugins/bootstrap-5.3.8/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script>
         (function() {
             const wrapper = document.getElementById('wrapper');
@@ -246,6 +246,82 @@
                 }, 16);
             });
         })();
+
+        // ensure ApexCharts is available for fragments that call renderCharts()
+        (function() {
+            function ensureApex(callback) {
+                if (window.ApexCharts) return callback();
+                const s = document.createElement('script');
+                s.src = '/plugins/apexcharts.js-5.3.0/dist/apexcharts.min.js';
+                s.async = false;
+                s.onload = callback;
+                document.head.appendChild(s);
+            }
+
+            window.renderCharts = function() {
+                ensureApex(function() {
+                    const el = document.querySelector('#chart');
+                    if (!el) return;
+                    // sample chart — replace with your real options/data
+                    const options = {
+                        series: [{ name: 'Sample', data: [10, 30, 20, 40, 30] }],
+                        chart: { type: 'area', height: 320 },
+                        xaxis: { categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May'] }
+                    };
+                    new ApexCharts(el, options).render();
+                });
+            };
+        })();
+
+        $(function() {
+
+            function loadPage(page) {
+
+                $.ajax({
+                    url: "<?php echo $system; ?>/pages/signin/",
+                    type: "POST",
+                    data: {}, // no form data needed
+                    cache: false,
+                    dataType: "html",
+
+                    beforeSend: function() {
+                        $("#dashboard-content").html(
+                            '<div class="text-center p-5">' +
+                            '<div class="spinner-border text-primary"></div>' +                                                                                                                                             
+                            '</div>'
+                        );
+                    },
+
+                    success: function(response) {
+                        $("#dashboard-content").html(response);
+
+                        // execute inline scripts (needed for ApexCharts)
+                        $("#dashboard-content script").each(function() {
+                            $.globalEval(this.text || this.textContent || this.innerHTML);
+                        });
+                    },
+
+                    error: function(xhr, status, error) {
+                        $("#dashboard-content").html(
+                            '<div class="alert alert-danger">Failed to load page</div>'
+                        );
+                        console.error(error);
+                    },
+
+                    complete: function() {
+                        // optional cleanup
+                    }
+                });
+            }
+
+            // Sidebar click handler
+            $("[data-page]").on("click", function(e) {
+                e.preventDefault();
+                var page = $(this).data("page");
+                if (page) loadPage(page);
+            });
+
+        });
     </script>
 </body>
 

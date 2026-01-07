@@ -1,4 +1,4 @@
-const apexLightTheme = {
+if (typeof window.apexLightTheme === 'undefined') window.apexLightTheme = {
   chart: {
     foreColor: "#212529", // bootstrap body text
     fontFamily: "'Poppins', sans-serif",
@@ -30,7 +30,7 @@ const apexLightTheme = {
   }
 };
 
-const apexDarkTheme = {
+if (typeof window.apexDarkTheme === 'undefined') window.apexDarkTheme = {
   chart: {
     foreColor: "#f8f9fa",
     fontFamily: "'Poppins', sans-serif",
@@ -63,30 +63,32 @@ const apexDarkTheme = {
 };
 
 
-function applyApexTheme() {
-    const isDark = localStorage.getItem(`${SYSTEM_NAME}_theme_mode`) == "dark";
-    const themeOptions = isDark ? apexDarkTheme : apexLightTheme;
+if (typeof window.applyApexTheme === 'undefined') {
+    window.applyApexTheme = function () {
+        const isDark = localStorage.getItem(`${SYSTEM_NAME}_theme_mode`) == "dark";
+        const themeOptions = isDark ? window.apexDarkTheme : window.apexLightTheme;
 
-    Apex.chart = Apex.chart || {};
-    Apex.grid = Apex.grid || {};
-    Apex.tooltip = Apex.tooltip || {};
-    Apex.xaxis = Apex.xaxis || {};
-    Apex.yaxis = Apex.yaxis || {};
-    Apex.legend = Apex.legend || {};
-    Apex.title = Apex.title || {};
-    Apex.subtitle = Apex.subtitle || {};
+        Apex.chart = Apex.chart || {};
+        Apex.grid = Apex.grid || {};
+        Apex.tooltip = Apex.tooltip || {};
+        Apex.xaxis = Apex.xaxis || {};
+        Apex.yaxis = Apex.yaxis || {};
+        Apex.legend = Apex.legend || {};
+        Apex.title = Apex.title || {};
+        Apex.subtitle = Apex.subtitle || {};
 
-    // Merge theme options
-    Apex.chart = { ...Apex.chart, ...themeOptions.chart };
-    Apex.grid = { ...Apex.grid, ...themeOptions.grid };
-    Apex.tooltip = { ...Apex.tooltip, ...themeOptions.tooltip };
-    Apex.xaxis = { ...Apex.xaxis, ...themeOptions.xaxis };
-    Apex.yaxis = { ...Apex.yaxis, ...themeOptions.yaxis };
-    Apex.legend = { ...Apex.legend, ...themeOptions.legend };
-    Apex.title = { ...Apex.title, ...themeOptions.title };
-    Apex.subtitle = { ...Apex.subtitle, ...themeOptions.subtitle };
+        // Merge theme options
+        Apex.chart = { ...Apex.chart, ...themeOptions.chart };
+        Apex.grid = { ...Apex.grid, ...themeOptions.grid };
+        Apex.tooltip = { ...Apex.tooltip, ...themeOptions.tooltip };
+        Apex.xaxis = { ...Apex.xaxis, ...themeOptions.xaxis };
+        Apex.yaxis = { ...Apex.yaxis, ...themeOptions.yaxis };
+        Apex.legend = { ...Apex.legend, ...themeOptions.legend };
+        Apex.title = { ...Apex.title, ...themeOptions.title };
+        Apex.subtitle = { ...Apex.subtitle, ...themeOptions.subtitle };
 
-    APEX_CHARTS.forEach((c) => {
-        c.updateOptions(themeOptions, false, true);
-    });
+        window.APEX_CHARTS.forEach((c) => {
+            c.updateOptions(themeOptions, false, true);
+        });
+    };
 }

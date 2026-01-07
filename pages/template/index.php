@@ -43,10 +43,10 @@ include '../../api/common/sessions.php';
     ?>
 
     <script>
-        const SYSTEM_NAME = `<?php echo $system; ?>`.replace('/', '');
-        const CURRENT_PAGE = 'dashboard';
-        const APEX_CHARTS = [];
-        var TOAST = null;
+        if (typeof window.SYSTEM_NAME === 'undefined') window.SYSTEM_NAME = `<?php echo $system; ?>`.replace('/', '');
+        if (typeof window.CURRENT_PAGE === 'undefined') window.CURRENT_PAGE = 'dashboard';
+        if (typeof window.APEX_CHARTS === 'undefined') window.APEX_CHARTS = [];
+        if (typeof window.TOAST === 'undefined') window.TOAST = null;
 
         <?php include '../../static/js/theme_configuration.js'; ?>
 
